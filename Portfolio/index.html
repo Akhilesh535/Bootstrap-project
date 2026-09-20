@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akhilesh Kumar Gupta - Frontend Developer and Web Designer Portfolio">
+  <title>Akhilesh Kumar Gupta | Frontend Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg-soft:#0b1728;
+      --card:rgba(16,31,51,.72);
+      --line:rgba(255,255,255,.10);
+      --text:#eef5ff;
+      --muted:#9eafc5;
+      --accent:#4f8cff;
+      --accent-2:#7c5cff;
+      --white:#fff;
+      --max:1180px;
+      --radius:22px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79,140,255,.14), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(124,92,255,.12), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),92%);margin:auto}
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:1000;
+      background:rgba(7,17,31,.76);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:76px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .logo{
+      font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;
+      letter-spacing:-.5px;
+    }
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:30px;align-items:center}
+    .nav-links a{color:#c9d5e6;font-size:14px;font-weight:600;transition:.25s}
+    .nav-links a:hover{color:var(--white)}
+    .menu-btn{
+      display:none;background:none;border:0;color:white;font-size:27px;cursor:pointer;
+    }
+
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;padding:8px 13px;
+      border:1px solid var(--line);border-radius:999px;color:#c8d6eb;
+      background:rgba(255,255,255,.035);font-size:13px;font-weight:600;margin-bottom:22px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:#35d58a;box-shadow:0 0 14px #35d58a}
+    h1{
+      font-family:"Space Grotesk",sans-serif;font-size:clamp(45px,6vw,78px);
+      line-height:1.03;letter-spacing:-3px;margin-bottom:24px;
+    }
+    h1 .gradient{
+      background:linear-gradient(90deg,#67a0ff,#9b7cff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero-copy{max-width:700px;color:var(--muted);font-size:17px}
+    .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 20px;border-radius:12px;font-size:14px;font-weight:700;
+      border:1px solid var(--line);transition:.25s;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));border:0}
+    .btn-secondary{background:rgba(255,255,255,.035)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .hero-card{
+      position:relative;padding:30px;border:1px solid var(--line);
+      border-radius:28px;background:linear-gradient(145deg,rgba(18,37,62,.9),rgba(9,21,36,.75));
+      box-shadow:0 25px 80px rgba(0,0,0,.25);
+    }
+    .profile{
+      width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+      margin-bottom:25px;font-family:"Space Grotesk";font-size:38px;font-weight:700;
+      background:linear-gradient(135deg,#4f8cff,#7c5cff);
+      box-shadow:0 15px 45px rgba(79,140,255,.25);
+    }
+    .hero-card h3{font-size:21px;margin-bottom:5px}
+    .hero-card p{color:var(--muted);font-size:14px}
+    .quick-list{margin-top:25px;display:grid;gap:12px}
+    .quick-item{display:flex;gap:12px;align-items:center;color:#d8e3f1;font-size:14px}
+    .quick-icon{
+      width:34px;height:34px;border:1px solid var(--line);border-radius:10px;
+      display:grid;place-items:center;background:rgba(255,255,255,.04)
+    }
+
+    section{padding:100px 0}
+    .section-head{margin-bottom:45px}
+    .section-kicker{color:#7ca9ff;font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:10px}
+    .section-title{
+      font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,4vw,48px);
+      line-height:1.1;letter-spacing:-1.5px;
+    }
+    .section-desc{color:var(--muted);max-width:650px;margin-top:14px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      padding:28px;
+    }
+    .card h3{font-size:20px;margin-bottom:12px}
+    .card p{color:var(--muted);font-size:15px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .stat{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+    .stat strong{font-family:"Space Grotesk";font-size:25px;display:block}
+    .stat span{font-size:12px;color:var(--muted)}
+
+    /* Skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+    .skill-card h3{font-size:16px;margin-bottom:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      padding:7px 10px;border-radius:8px;background:#101f33;
+      border:1px solid rgba(255,255,255,.08);font-size:12px;color:#cbd8e8;
+    }
+
+    /* Experience */
+    .timeline{position:relative;max-width:850px}
+    .timeline:before{
+      content:"";position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:var(--line);
+    }
+    .timeline-item{position:relative;padding-left:42px;margin-bottom:38px}
+    .timeline-dot{
+      position:absolute;left:0;top:7px;width:17px;height:17px;border-radius:50%;
+      background:var(--bg);border:4px solid var(--accent);
+    }
+    .timeline-date{color:#7ca9ff;font-size:13px;font-weight:700}
+    .timeline h3{font-size:22px;margin:5px 0}
+    .timeline-company{color:#c7d4e5;font-weight:600;margin-bottom:10px}
+    .timeline ul{padding-left:18px;color:var(--muted);font-size:14px}
+    .timeline li{margin:6px 0}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project{
+      position:relative;min-height:320px;display:flex;flex-direction:column;
+      justify-content:flex-end;overflow:hidden;border-radius:22px;border:1px solid var(--line);
+      background:linear-gradient(145deg,#142b49,#0a1626);transition:.3s;
+    }
+    .project:hover{transform:translateY(-6px);border-color:rgba(103,160,255,.45)}
+    .project-top{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 75% 20%,rgba(124,92,255,.35),transparent 30%),
+        radial-gradient(circle at 20% 30%,rgba(79,140,255,.3),transparent 35%);
+    }
+    .project-content{position:relative;padding:25px;background:linear-gradient(transparent,rgba(4,10,19,.98) 35%)}
+    .project-number{color:#7ca9ff;font-size:12px;font-weight:700}
+    .project h3{font-family:"Space Grotesk";font-size:24px;margin:5px 0 8px}
+    .project p{color:#aebed1;font-size:13px}
+    .project-tech{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+    .project-tech span{font-size:11px;color:#d5e0ee;background:rgba(255,255,255,.06);padding:5px 8px;border-radius:6px}
+
+    /* Education */
+    .education{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .edu-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+    .edu-year{font-size:12px;color:#7ca9ff;font-weight:700}
+    .edu-card h3{font-size:17px;margin:8px 0}
+    .edu-card p{font-size:13px;color:var(--muted)}
+
+    /* Contact */
+    .contact-box{
+      display:grid;grid-template-columns:1fr .8fr;gap:30px;padding:45px;
+      border:1px solid var(--line);border-radius:28px;
+      background:linear-gradient(135deg,rgba(79,140,255,.10),rgba(124,92,255,.08));
+    }
+    .contact-box h2{font-family:"Space Grotesk";font-size:40px;line-height:1.1}
+    .contact-box p{color:var(--muted);margin-top:14px}
+    .contact-info{display:grid;gap:12px}
+    .contact-link{
+      display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;
+      border:1px solid var(--line);background:rgba(255,255,255,.035);font-size:14px;
+    }
+    .contact-link span:first-child{font-size:18px}
+    footer{padding:30px 0;border-top:1px solid var(--line);color:#7f91a8;font-size:13px}
+    footer .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.contact-box{grid-template-columns:1fr}
+      .skills-grid,.projects{grid-template-columns:repeat(2,1fr)}
+      .education{grid-template-columns:1fr}
+      .hero-card{max-width:600px}
+    }
+    @media(max-width:700px){
+      .nav{min-height:68px}
+      .menu-btn{display:block}
+      .nav-links{
+        display:none;position:absolute;top:68px;left:4%;width:92%;
+        padding:15px;flex-direction:column;align-items:stretch;gap:3px;
+        background:#0b1728;border:1px solid var(--line);border-radius:15px;
+      }
+      .nav-links.active{display:flex}
+      .nav-links a{padding:12px}
+      .hero{padding-top:115px}
+      h1{letter-spacing:-2px}
+      section{padding:75px 0}
+      .skills-grid,.projects{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .contact-box{padding:28px}
+      .contact-box h2{font-size:32px}
+    }
+    .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home">AG<span></span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Available for Frontend Opportunities</div>
+          <h1>Hi, I'm <span class="gradient">Akhilesh</span>.<br>Frontend Developer.</h1>
+          <p class="hero-copy">
+            I build responsive, user-friendly websites with HTML5, CSS3, Bootstrap and WordPress.
+            I enjoy turning designs into clean, mobile-friendly and cross-browser-compatible web experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View My Projects ↗</a>
+            <a class="btn btn-secondary" href="mailto:akhileshg95699@gmail.com">Let's Connect</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="profile">AG</div>
+          <h3>Akhilesh Kumar Gupta</h3>
+          <p>Frontend Developer & Web Designer</p>
+
+          <div class="quick-list">
+            <div class="quick-item"><div class="quick-icon">⌖</div> Noida Sector 62, Uttar Pradesh</div>
+            <div class="quick-item"><div class="quick-icon">✉</div> akhileshg95699@gmail.com</div>
+            <div class="quick-item"><div class="quick-icon">☎</div> +91 9569966507</div>
+            <div class="quick-item"><div class="quick-icon">⌘</div> BCA · 2022–2025</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">About Me</div>
+          <h2 class="section-title">Building clean interfaces<br>with practical web skills.</h2>
+          <p class="section-desc">
+            Frontend Developer with 1 year of hands-on experience as a Web Designer at Media Search Group (MSG),
+            focused on responsive websites, WordPress customization and converting designs into polished web pages.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>What I Do</h3>
+            <p>
+              I design and develop responsive websites using HTML5, CSS3, Bootstrap, basic JavaScript and WordPress.
+              I also work with popular page builders and have basic experience with cPanel, FTP and hosting environments.
+            </p>
+            <div class="stats">
+              <div class="stat"><strong>1+</strong><span>Year Experience</span></div>
+              <div class="stat"><strong>10+</strong><span>Builders & Platforms</span></div>
+              <div class="stat"><strong>3</strong><span>Featured Projects</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>My Current Focus</h3>
+            <p>
+              I am currently strengthening my Advanced JavaScript skills while continuing to improve my frontend
+              development workflow, responsive UI implementation and WordPress development knowledge.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="#skills">Explore Skills →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Technical Skills</div>
+          <h2 class="section-title">Tools I work with.</h2>
+          <p class="section-desc">A practical toolkit for building, customizing and maintaining modern websites.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>WordPress & Builders</h3>
+            <div class="tags">
+              <span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">WPBakery</span>
+              <span class="tag">Bricks</span><span class="tag">Divi</span><span class="tag">Duda</span><span class="tag">Showit</span><span class="tag">Wix</span><span class="tag">Squarespace</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Workflow & Deployment</h3>
+            <div class="tags">
+              <span class="tag">VS Code</span><span class="tag">GitHub</span><span class="tag">cPanel</span>
+              <span class="tag">FTP</span><span class="tag">Hosting</span><span class="tag">Responsive UI</span><span class="tag">Cross-Browser</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>AI Development Tools</h3>
+            <div class="tags">
+              <span class="tag">Claude.ai</span><span class="tag">DeepSeek</span><span class="tag">Z.ai</span><span class="tag">Lovable.ai</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>UI Concepts</h3>
+            <div class="tags">
+              <span class="tag">Responsive Design</span><span class="tag">Semantic Markup</span>
+              <span class="tag">Mobile First</span><span class="tag">Clean UI</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Currently Learning</h3>
+            <div class="tags">
+              <span class="tag">Advanced JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Experience</div>
+          <h2 class="section-title">My professional journey.</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1 YEAR</div>
+            <h3>Web Designer</h3>
+            <div class="timeline-company">Media Search Group (MSG)</div>
+            <ul>
+              <li>Designed and developed responsive websites using HTML5, CSS3, Bootstrap and basic JavaScript.</li>
+              <li>Built and customized WordPress websites using Elementor and other page builders.</li>
+              <li>Converted design layouts into clean, mobile-friendly and cross-browser-compatible pages.</li>
+              <li>Handled basic website deployment and file management using cPanel and FTP.</li>
+              <li>Used AI development tools to speed up development and debugging workflows.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Selected Projects</div>
+          <h2 class="section-title">Work I've built.</h2>
+          <p class="section-desc">Selected projects from my frontend and WordPress development experience.</p>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-top"></div>
+            <div class="project-content">
+              <img src="/images/Pure-bootstrap.png" alt="Responsive Portfolio" class="project-image">
+              <div class="project-number">01 / FRONTEND</div>
+              <h3>Responsive Portfolio</h3>
+              <p>A clean, responsive personal portfolio with interactive elements and a mobile-friendly layout.</p>
+              <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>JavaScript</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"></div>
+            <div class="project-content">
+              <img src="/images/SOS-Traning.bmp" alt="Responsive Portfolio" class="project-image">
+              <div class="project-number">02 / WORDPRESS</div>
+              <h3>SOS Driver Training</h3>
+              <p>A responsive driver-training website developed in WordPress using the Elementor page builder.</p>
+              <div class="project-tech"><span>WordPress</span><span>Elementor</span><span>Responsive UI</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"></div>
+            <div class="project-content">
+              <img src="/images/PublicKitchen.png" alt="Responsive Portfolio" class="project-image">
+              <div class="project-number">03 / FRONTEND</div>
+              <h3>Public Kitchen</h3>
+              <p>A responsive multi-section website with a user-friendly interface and interactive elements.</p>
+              <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>JavaScript</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Education</div>
+          <h2 class="section-title">Academic background.</h2>
+        </div>
+
+        <div class="education">
+          <div class="edu-card">
+            <div class="edu-year">2022 – 2025</div>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p>JS University</p>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-year">2021 – 2022</div>
+            <h3>12th — Intermediate</h3>
+            <p>UP Board</p>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-year">2019 – 2020</div>
+            <h3>10th — High School</h3>
+            <p>UP Board</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="section-kicker">Let's Connect</div>
+            <h2>Have a project or opportunity in mind?</h2>
+            <p>
+              I'm interested in Frontend Developer and Web Designer opportunities where I can contribute,
+              learn and build high-quality web experiences.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:akhileshg95699@gmail.com">Email Me ↗</a>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <a class="contact-link" href="mailto:akhileshg95699@gmail.com"><span>✉</span><span>akhileshg95699@gmail.com</span></a>
+            <a class="contact-link" href="tel:+919569966507"><span>☎</span><span>+91 9569966507</span></a>
+            <div class="contact-link"><span>⌖</span><span>Noida Sector 62, Uttar Pradesh</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Akhilesh Kumar Gupta. All rights reserved.</span>
+      <span>Frontend Developer & Web Designer</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuBtn.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
